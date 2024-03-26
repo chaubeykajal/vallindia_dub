@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:vallindia_dub/const%20variable/themecolor.dart';
+import 'package:vall_india/const%20variable/themecolor.dart';
 
 class CustomTextFormField extends StatelessWidget{
   final double height;
@@ -44,13 +44,14 @@ class CustomTextFormField extends StatelessWidget{
       width: width,
       child: TextFormField(
         controller: controller,
-        
+        style:TextStyle(color: color2),
         decoration: InputDecoration(
           border: OutlineInputBorder( borderSide:BorderSide(
-            color: color1, // You can change the color as well
+            color: color2, // You can change the color as well
             width: 6.0,) ),
           labelText:labelText,
           hintText: hintText,
+          hintStyle:TextStyle(color: color1) ,
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon, 
         ),
@@ -58,7 +59,9 @@ class CustomTextFormField extends StatelessWidget{
         obscureText: obscureText,
         validator: validator,
       ),
+      
     );
+    
     
   }
   

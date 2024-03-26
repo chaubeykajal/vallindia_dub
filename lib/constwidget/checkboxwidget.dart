@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:vallindia_dub/const%20variable/themecolor.dart';
+import 'package:vall_india/const%20variable/themecolor.dart';
+
 
 class CheckboxWidget extends StatelessWidget {
 
@@ -24,9 +25,16 @@ class CheckboxWidget extends StatelessWidget {
           value:value, 
           onChanged:onChanged,),
         
-        SizedBox(width:4,),
+        // InkWell(
+        //   onTap: (){},
+        //   child: 
         Text(String1, style:TextStyle(color:color2,fontSize:15)),
-        Text(String2, style:TextStyle(color:color3,fontSize:15)),
+        // ),
+        // InkWell(
+        //   onTap: (){},
+        //   child: 
+        Text(String2, style:TextStyle(color:color3,fontSize:15))
+        // ),
       ],
     );
   }
