@@ -3,11 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vall_india/authentication/authFunctions/googleSigninFunc.dart';
+import 'package:vall_india/authentication/authScreens/confirmPassword.dart';
+import 'package:vall_india/authentication/authScreens/forgotPassword.dart';
+import 'package:vall_india/authentication/authScreens/signup.dart';
+import 'package:vall_india/authentication/authWidgets/TermsAndConditionsWidget.dart';
+import 'package:vall_india/authentication/authWidgets/logowidget.dart';
+import 'package:vall_india/authentication/authWidgets/subtitleWidget.dart';
 import 'package:vall_india/const%20variable/themecolor.dart';
-import 'package:vall_india/constwidget/checkboxwidget.dart';
 import 'package:vall_india/constwidget/customeTextformfield.dart';
 import 'package:vall_india/constwidget/elevatedButtonWidget.dart';
-import 'package:vall_india/provider/checkbox_provider.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 
@@ -26,10 +30,9 @@ class _signin_pageState extends State<signin_page> {
   late GoogleSignIn googleSignIn;
 
   final _formkey=GlobalKey<FormState>();
-  TextEditingController _nameController= TextEditingController();
   TextEditingController _emailController= TextEditingController();
   TextEditingController _passwordController= TextEditingController();
-  TextEditingController _confirmPasswordController= TextEditingController();
+
 
   
 
@@ -52,235 +55,140 @@ class _signin_pageState extends State<signin_page> {
         body: Form(
           key: _formkey,
           child: SingleChildScrollView(
-            child: Center(
-              child: Column(
-      
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
+            child: Column(    
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                logoWidget(mq: mq),
+                SizedBox(height: 15,),
+                Padding(
+                  padding: EdgeInsets.only(left:12.0, right:12,),
+                  child:
                   Container(
-                      margin:EdgeInsets.only(top:20),
-                      height: mq.height*17/100,
-                      width: mq.height*17/100,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),color: Color.fromARGB(0, 217, 17, 17)),
-                      child: CircleAvatar(child:Image.asset('assets/Banners/vall.png'))),
-                  SizedBox(height: 15,),
-                  Padding(
-                    padding: EdgeInsets.only(right:12.0,left:12.0),
-                    child:
-                    Stack(
-                      children: [
-                        Container(
-                          color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children:[
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.arrow_back,size:15,),
-                                        SizedBox(width:2,),
-                                        Text('Back to Home'),
-                                      ],
-                                    ),
-                                    Expanded(child: SizedBox()),
-      
-                                    Row(
-                                      children: [
-                                        Text('Sign up as an NGO'),
-                                        SizedBox(width:2,),
-      
-                                        // IconButton(
-                                        //   onPressed:,
-                                        //   icon:
-                                        Icon(Icons.arrow_forward,size:15)
-                                        // )
-                                      ],
-                                    ),
-                                  ],
-                                ),
-      
-                                Text('Sign up', style: TextStyle(fontSize:24, color:Colors.black),),
-                                SizedBox(height: 10,),
-                                Text('Create an account to access the complete platform', style: TextStyle(fontSize:13, color:color1),),
-      
-                                SizedBox(height: 10,),
-      
-                                /// creating Text fields for input user data.
-      
-                                CustomTextFormField(
-                                    labelText: null,
-                                    controller: _nameController,
-                                    hintText: 'Name*',
-                                    prefixIcon: null,
-                                    suffixIcon: null,
-                                    obscureText: false,
-                                    validator: (value){
-                                      if (value!.isEmpty){
-                                        return 'Please enter your name';
-                                      }
-                                    },
-                                    height: mq.height*6/100,
-                                    width: mq.width),
-      
-                                SizedBox(height: 8,),
-      
-                                CustomTextFormField(
-                                    labelText: null,
-                                    controller: _emailController,
-                                    hintText: 'Email*',
-                                    prefixIcon: null,
-                                    suffixIcon: null,
-                                    obscureText: false,
-                                    validator: (value){
-                                      if (value!.isEmpty){
-                                        return 'Please enter your email';
-                                      }
-                                    },
-                                    height: mq.height*6/100,
-                                    width: mq.width),
-      
-                                SizedBox(height: 8,),
-      
-                                CustomTextFormField(
-                                    labelText: null,
-                                    controller: _passwordController,
-                                    hintText: 'Create password*',
-                                    prefixIcon: null,
-                                    suffixIcon: Icon(Icons.visibility),
-                                    obscureText: false,
-                                    validator: (value){
-                                      if (value!.isEmpty){
-                                        return 'Please create a unique password';
-                                      }
-                                    },
-                                    height: mq.height*6/100,
-                                    width: mq.width),
-      
-                                SizedBox(height: 8,),
-      
-                                CustomTextFormField(
-                                    labelText: null,
-                                    controller: _confirmPasswordController,
-                                    hintText: 'Confirm password*',
-                                    prefixIcon: null,
-                                    suffixIcon: Icon(Icons.visibility),
-                                    obscureText: false,
-                                    validator: (value){
-                                      if (value!.isEmpty){
-                                        return 'Please enter your name';
-                                      }
-                                    },
-                                    height: mq.height*6/100,
-                                    width: mq.width),
-                                // Terms & Privacy polices textbox
-                                Consumer<CheckboxProvider>(
-                                    builder: (context, value, child){
-                                      return Column(
-                                        children: [
-                                          CheckboxWidget(
-                                              String1:'I agree to the ',
-                                              String2:'Terms and Conditions' ,
-                                              onChanged: (newValue){
-                                                value.toggleCheckbox_Term();
-                                              },
-                                              value:value.isChecked_1
-                                              ),
-                                        CheckboxWidget(
-                                          String1:'I agree to the ' ,
-                                          String2:'Privacy policies',
-                                          value: value.isChecked_2,
-                                          onChanged:(newValue2){
-                                            value.toggleCheckbox_Privacy();
-                                          }),
-
-                                        ],
-                                      );
-                                    }),
-      
-      
-                                
-      
-      
-                                // const SizedBox(height:20,),
-      
-                              elevatedButtonWidget(height: mq.height*0.05, color: Colors.blue, onpress: null, width: double.infinity, title: 'Create Account', fontsize: 19,),
-      
-                              const SizedBox(height:20,),
-      
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('Already have an account?', style: TextStyle(color:  color1),),
-                                    InkWell(onTap: (){},child: Text('Sign in', style:TextStyle(color:color3,fontSize:15))),
-                                  ],
-                                ),
-      
-                                const SizedBox(height:10,),
-      
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('__________', style: TextStyle(color: color1)),
-                                    Text('or continue with', style: TextStyle(color: color1)),
-                                    Text('__________', style: TextStyle(color: color1)),
-                                  ],
-                                ),
-      
-                                const SizedBox(height:8,),
-      
-                                Consumer<AuthProvider>(
-                                  builder: (context, value, child){
-                                  return InkWell(
-                                      onTap: (){
-                                        value.handleSignIn(googleSignIn,context);
-                                        value.setUser();},
-                                      child:Container(
-                                          height: mq.height*5/100,
-                                          width: mq.height*5/100,
-                                          // color: color1,
-                                          child: Image.asset('assets/Icons/google.png',))
-                                  );}
-                                ),
-      
-                                Consumer<AuthProvider>(
-                                  builder: (BuildContext context, AuthProvider value, Widget? child) {  
-                                  return InkWell(
-                                      onTap: (){value.handleSignOut(googleSignIn);},
-                                      child:Container(
-                                          height: mq.height*5/100,
-                                          width: mq.height*5/100,
-                                          // color: color1,
-                                          child: Text('logout'))
-                                  );
-                                  }
-                                )
-                                
-      
-      
-      
-      
-                              ],
-      
-      
-                            ),
-                          ),
-      
-      
-      
-      
-                        )
-                      ],
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25)
                     ),
-                  )
-                ],
-              ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children:[
+                          Center(child: Text('Sign in', style: TextStyle(fontSize:25, fontWeight: FontWeight.bold,color:Colors.black),)),
+                          SizedBox(height: 10,),
+
+                          subtitlewidget(subtitle:'Please enter your detials to access your account'),
+                          
+                                    
+                          SizedBox(height: 20,),
+                                    
+                          /// creating Text fields for input user data.
+                                     
+                          CustomTextFormField(
+                              controller: _emailController,
+                              hintText: 'Email*',
+                              prefixIcon: null,
+                              suffixIcon: null,
+                              obscureText: false,
+                              validator: (value){
+                                if (value!.isEmpty){
+                                  return 'Please enter your email';
+                                }
+                              },
+                              ),
+                                    
+                          SizedBox(height: 8,),
+                                    
+                          CustomTextFormField(
+                              controller: _passwordController,
+                              hintText: 'Password*',
+                              prefixIcon: null,
+                              suffixIcon: Icon(Icons.visibility),
+                              obscureText: false,
+                              validator: (value){
+                                if (value!.isEmpty){
+                                  return 'Please create a unique password';
+                                }
+                              },
+                      
+                              ),
+
+                             
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  InkWell(
+                                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>forgotPasswordPage()));},
+                                    child: Text(
+                                      textAlign: TextAlign.end,
+                                      'Forgot password',
+                                      style: TextStyle(fontSize:15, color:color2,decoration:TextDecoration.underline,decorationColor: color2,fontWeight:FontWeight.bold),),
+                                  ),
+                                ],
+                              ),
+                              //  ),
+                             
+                                  
+                        const SizedBox(height:10,),
+                                    
+                        elevatedButtonWidget(height: mq.height*0.05, color: Colors.blue, 
+                        onpress: (){
+                          if ( _formkey.currentState!.validate()){
+                          return 
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder:(context){return confirmPasswordPage();}));
+                          }else{return null;}
+                        }, width: double.infinity, title: 'Sign in', fontsize: 17,),
+                                    
+                        const SizedBox(height:20,),
+                                    
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Don't have an account?", style: TextStyle(color:  color1),),
+                              InkWell(
+                                onTap: (){
+                                  // Navigator.pop(context)
+                                  Navigator.pushReplacement(context,MaterialPageRoute(builder: (context){return signup_page();}));},
+                                  child: Text('Sign up', style:TextStyle(color:color3,fontSize:15))),
+                            ],
+                          ),
+                                    
+                          const SizedBox(height:10,),
+                                    
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('__________', style: TextStyle(color: color1)),
+                              Text('or continue with', style: TextStyle(color: color1)),
+                              Text('__________', style: TextStyle(color: color1)),
+                            ],
+                          ),
+                                    
+                          const SizedBox(height:8,),
+                          
+                          //Google sign in 
+                              
+                          Consumer<AuthProvider>(
+                            builder: (context, value, child){
+                            return InkWell(
+                                onTap: (){
+                                  value.handleSignIn(googleSignIn,context);
+                                  value.setUser();},
+                                child:Center(
+                                  child:Image.asset('assets/Icons/google.png',
+                                  height:mq.height*5/100,width: mq.height*5/100,)    
+                                )
+                            );}
+                          ),
+                          TermsAndConditionsWidget(),
+                          ],
+                        ),
+                    ),
+                                    
+                  ),
+                )
+              ],
             ),
           ),
         ),
@@ -289,4 +197,73 @@ class _signin_pageState extends State<signin_page> {
     );
   }
 }
+
+
+
+// const Row(
+    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+    //   crossAxisAlignment: CrossAxisAlignment.center,
+    //   children: [
+    //     Row(
+    //       children: [
+    //         Icon(Icons.arrow_back,size:15,),
+    //         SizedBox(width:2,),
+    //         Text('Back to Home'),
+    //       ],
+    //     ),
+    //     Expanded(child: SizedBox()),
+
+    //     Row(
+    //       children: [
+    //         Text('Sign up as an NGO'),
+    //         SizedBox(width:2,),
+
+    //         // IconButton(
+    //         //   onPressed:,
+    //         //   icon:
+    //         Icon(Icons.arrow_forward,size:15)
+    //         // )
+    //       ],
+    //     ),
+    //   ],
+    // ),
+
+  //Google sign out
+      
+  // Consumer<AuthProvider>(
+  //   builder: (BuildContext context, AuthProvider value, Widget? child) {  
+  //   return InkWell(
+  //       onTap: (){value.handleSignOut(googleSignIn);},
+  //       child:Container(
+  //           height: mq.height*5/100,
+  //           width: mq.height*5/100,
+  //           // color: color1,
+  //           child: Text('logout'))
+  //   );
+  //   }
+  // )
+
+// Consumer<CheckboxProvider>(
+  //     builder: (context, value, child){
+  //       return Column(
+  //         children: [
+  //           CheckboxWidget(
+  //               String1:'I agree to the ',
+  //               String2:'Terms and Conditions' ,
+  //               onChanged: (newValue){
+  //                 value.toggleCheckbox_Term();
+  //               },
+  //               value:value.isChecked_1
+  //               ),
+  //         CheckboxWidget(
+  //           String1:'I agree to the ' ,
+  //           String2:'Privacy policies',
+  //           value: value.isChecked_2,
+  //           onChanged:(newValue2){
+  //             value.toggleCheckbox_Privacy();
+  //           }),
+
+  //         ],
+  //       );
+  //     }),
 

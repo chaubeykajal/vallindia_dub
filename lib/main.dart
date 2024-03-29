@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vallindia_dub/authentication/sign_up.dart';
+import 'package:vallindia_dub/authentication/authFunctions/googleSigninFunc.dart';
+import 'package:vallindia_dub/authentication/authScreens/sign_in.dart';
 import 'package:vallindia_dub/provider/checkbox_provider.dart';
+import 'package:vallindia_dub/provider/profileIndicator_provider.dart';
 import 'package:vallindia_dub/provider/theme_provider.dart';
 
 void main() {
@@ -16,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
    return MultiProvider(
       providers:[ChangeNotifierProvider(create: (context) => Themechanger(),),
-                 ChangeNotifierProvider(create: (context)=> CheckboxProvider())],
+                 ChangeNotifierProvider(create: (context)=> CheckboxProvider()),
+                 ChangeNotifierProvider(create: (create)=> AuthProvider()),
+                 ChangeNotifierProvider(create: (context)=> ProfileIndicatorProvider()),],
       builder: (context, child){
       return MaterialApp(
       title: 'Flutter Demo',
@@ -25,7 +29,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(),
-      home: signup_page(),
+      home: signin_page(),
       debugShowCheckedModeBanner: false,
     );
     },

@@ -15,7 +15,7 @@ class elevatedButtonWidget extends StatelessWidget {
   final double height;
   final double width;
   final Color color;
-  final Function()? onpress;
+  final Function() onpress;
   final String title;
   final double fontsize;
   
@@ -28,9 +28,11 @@ class elevatedButtonWidget extends StatelessWidget {
         
         child:ElevatedButton(
            
-            style: ElevatedButton.styleFrom(disabledBackgroundColor:color, ),
+            style: ElevatedButton.styleFrom(backgroundColor:color, ),
             onPressed:onpress,
-            child: Text(title,style: TextStyle(color: Colors.white,fontSize:fontsize)))
+            child: Text(title,
+              style: 
+                TextStyle(color: Colors.white,fontSize:fontsize)))
           
     );
   }
