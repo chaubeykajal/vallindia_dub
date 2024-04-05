@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
-import 'package:vall_india/constwidget/elevatedButtonWidget.dart';
+import 'package:vallindia_dub/const%20variable/themecolor.dart';
+
 
 class minorAuthPage_1 extends StatefulWidget{
   @override

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:vall_india/screens/homeScreen.dart';
+import 'package:vallindia_dub/screens/homeScreen.dart';
 
 class graphPresentation extends StatelessWidget {
   const graphPresentation({

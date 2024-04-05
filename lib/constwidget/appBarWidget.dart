@@ -1,9 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
-import 'package:vall_india/authentication/authFunctions/googleSigninFunc.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
+import 'package:vallindia_dub/authentication/authFunctions/googleSigninFunc.dart';
+import 'package:vallindia_dub/const%20variable/themecolor.dart';
 
 
 class appBarWidget extends StatelessWidget implements PreferredSizeWidget{

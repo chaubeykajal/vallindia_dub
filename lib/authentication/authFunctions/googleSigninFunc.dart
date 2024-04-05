@@ -6,7 +6,8 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:vall_india/screens/homeScreen.dart';
+import 'package:vallindia_dub/screens/homeScreen.dart';
+
 
 
 // google signin function

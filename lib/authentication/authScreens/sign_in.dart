@@ -2,16 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vall_india/authentication/authFunctions/googleSigninFunc.dart';
-import 'package:vall_india/authentication/authScreens/confirmPassword.dart';
-import 'package:vall_india/authentication/authScreens/forgotPassword.dart';
-import 'package:vall_india/authentication/authScreens/signup.dart';
-import 'package:vall_india/authentication/authWidgets/TermsAndConditionsWidget.dart';
-import 'package:vall_india/authentication/authWidgets/logowidget.dart';
-import 'package:vall_india/authentication/authWidgets/subtitleWidget.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
-import 'package:vall_india/constwidget/customeTextformfield.dart';
-import 'package:vall_india/constwidget/elevatedButtonWidget.dart';
+import 'package:vallindia_dub/authentication/authFunctions/googleSigninFunc.dart';
+import 'package:vallindia_dub/authentication/authScreens/confirmPassword.dart';
+import 'package:vallindia_dub/authentication/authScreens/forgotPassword.dart';
+import 'package:vallindia_dub/authentication/authScreens/signup.dart';
+import 'package:vallindia_dub/authentication/authWidgets/TermsAndConditionsWidget.dart';
+import 'package:vallindia_dub/authentication/authWidgets/logowidget.dart';
+import 'package:vallindia_dub/authentication/authWidgets/subtitleWidget.dart';
+import 'package:vallindia_dub/const%20variable/themecolor.dart';
+import 'package:vallindia_dub/constwidget/customeTextformfield.dart';
+import 'package:vallindia_dub/constwidget/elevatedButtonWidget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 

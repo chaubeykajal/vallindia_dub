@@ -3,7 +3,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:vall_india/authentication/authScreens/sign_in.dart';
+
+import '../authentication/authScreens/sign_in.dart';
 
 class splashScreen extends StatefulWidget{
   @override

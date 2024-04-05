@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:vall_india/MVVM_Strutures/Quest_MVVM.dart';
+import 'package:vallindia_dub/MVVM_Strutures/Quest_MVVM.dart';
 
 List<Quests> Existing_Quests =[
   Quests(

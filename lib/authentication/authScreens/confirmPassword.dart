@@ -5,13 +5,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:vall_india/authentication/authScreens/sign_in.dart';
-import 'package:vall_india/authentication/authWidgets/backbuttonWidget.dart';
-import 'package:vall_india/authentication/authWidgets/logowidget.dart';
-import 'package:vall_india/authentication/authWidgets/subtitleWidget.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
-import 'package:vall_india/constwidget/customeTextformfield.dart';
-import 'package:vall_india/constwidget/elevatedButtonWidget.dart';
+import '../../../constwidget/customeTextformfield.dart';
+import '../../../constwidget/elevatedButtonWidget.dart';
+import '../../const variable/themecolor.dart';
+import '../authWidgets/backbuttonWidget.dart';
+import '../authWidgets/logowidget.dart';
+import '../authWidgets/subtitleWidget.dart';
+
 
 class confirmPasswordPage extends StatefulWidget{
   @override

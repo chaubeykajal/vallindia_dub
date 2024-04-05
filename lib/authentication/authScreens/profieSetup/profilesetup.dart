@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:vall_india/authentication/authWidgets/logowidget.dart';
-import 'package:vall_india/authentication/authWidgets/subtitleWidget.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
-import 'package:vall_india/constwidget/customeTextformfield.dart';
-import 'package:vall_india/constwidget/elevatedButtonWidget.dart';
+
+import '../../../const variable/themecolor.dart';
+import '../../../constwidget/customeTextformfield.dart';
+import '../../../constwidget/elevatedButtonWidget.dart';
+import '../../authWidgets/logowidget.dart';
+import '../../authWidgets/subtitleWidget.dart';
+
 
 class profileSetup_Page extends StatefulWidget{
   @override

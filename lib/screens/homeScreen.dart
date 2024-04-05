@@ -5,12 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:vall_india/MVVM_Strutures/Quest_MVVM.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
-import 'package:vall_india/constwidget/appBarWidget.dart';
-import 'package:vall_india/constwidget/elevatedButtonWidget.dart';
-import 'package:vall_india/constwidget/graphPresentation.dart';
-import 'package:vall_india/dummydata/homescreenData.dart';
+import '../const variable/themecolor.dart';
+import '../constwidget/appBarWidget.dart';
+import '../constwidget/graphPresentation.dart';
+import '../dummydata/homescreenData.dart';
 
 
 

@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
+import 'package:vallindia_dub/const%20variable/themecolor.dart';
 
 class subtitlewidget extends StatelessWidget {
   final String subtitle;

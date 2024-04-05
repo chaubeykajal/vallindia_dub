@@ -1,9 +1,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:vall_india/authentication/authWidgets/logowidget.dart';
-import 'package:vall_india/authentication/authWidgets/subtitleWidget.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
+
+import '../../../const variable/themecolor.dart';
+import '../../authWidgets/logowidget.dart';
+import '../../authWidgets/subtitleWidget.dart';
+
 
 class questsSelection_Page extends StatefulWidget{
   @override

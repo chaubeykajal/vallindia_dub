@@ -2,12 +2,12 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:vall_india/authentication/authWidgets/backbuttonWidget.dart';
-import 'package:vall_india/authentication/authWidgets/logowidget.dart';
-import 'package:vall_india/authentication/authWidgets/subtitleWidget.dart';
-import 'package:vall_india/const%20variable/themecolor.dart';
-import 'package:vall_india/constwidget/customeTextformfield.dart';
-import 'package:vall_india/constwidget/elevatedButtonWidget.dart';
+import 'package:vallindia_dub/authentication/authWidgets/backbuttonWidget.dart';
+import 'package:vallindia_dub/authentication/authWidgets/logowidget.dart';
+import 'package:vallindia_dub/authentication/authWidgets/subtitleWidget.dart';
+import 'package:vallindia_dub/const%20variable/themecolor.dart';
+import 'package:vallindia_dub/constwidget/customeTextformfield.dart';
+import 'package:vallindia_dub/constwidget/elevatedButtonWidget.dart';
 
 class resetPasswordPage extends StatefulWidget{
   @override
