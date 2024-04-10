@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:vallindia_dub/authentication/sign_up.dart';
 import 'package:vallindia_dub/provider/checkbox_provider.dart';
 import 'package:vallindia_dub/provider/theme_provider.dart';
+import 'package:vallindia_dub/user_form/select_ngo.dart';
+import 'package:vallindia_dub/user_form/user_form_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
    return MultiProvider(
       providers:[ChangeNotifierProvider(create: (context) => Themechanger(),),
-                 ChangeNotifierProvider(create: (context)=> CheckboxProvider())],
+                 ChangeNotifierProvider(create: (context)=> CheckboxProvider()),
+                  ChangeNotifierProvider(create: (context)=> NGOProvider())
+      ],
       builder: (context, child){
       return MaterialApp(
       title: 'Flutter Demo',

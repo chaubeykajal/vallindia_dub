@@ -5,6 +5,8 @@ import 'package:vallindia_dub/constwidget/customeTextformfield.dart';
 import 'package:vallindia_dub/provider/checkbox_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../const variable/themecolor.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class signup_page extends StatefulWidget {
   
@@ -16,19 +18,35 @@ class signup_page extends StatefulWidget {
 
 class _signup_pageState extends State<signup_page> {
 
+  googlelogin() async {
+    print("google sigin create");
+
+    GoogleSignIn _googleSignIn =  GoogleSignIn(
+      // clientId: "579312313951-hdgov5th7dcesd7d849qsmfinm6hn8hg.apps.googleusercontent.com"
+          clientId: "579312313951-50qorkaav0i96o38dera23lsi29q5k2e.apps.googleusercontent.com"
+    );
+    try {
+      var result = await _googleSignIn.signIn();
+      print(result!.email);
+      print(result!.displayName);
+    } catch (error) {
+      print(error);
+    }
+  }
+
 
   final _formkey=GlobalKey<FormState>();
   TextEditingController _nameController= TextEditingController();
   TextEditingController _emailController= TextEditingController();
   TextEditingController _passwordController= TextEditingController();
   TextEditingController _confirmPasswordController= TextEditingController();
-  
-  
+
+
 
   @override
   Widget build(BuildContext context) {
     final mq= MediaQuery.of(context).size;
-    
+
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 244, 238, 222),
       body: Form(
@@ -36,7 +54,7 @@ class _signup_pageState extends State<signup_page> {
         child: SingleChildScrollView(
           child: Center(
             child: Column(
-              
+
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -46,10 +64,10 @@ class _signup_pageState extends State<signup_page> {
                   width: mq.height*20/100,
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),color: Color.fromARGB(0, 217, 17, 17)),
                   child: CircleAvatar(child:Image.asset('assets/Banners/vall.png'))),
-              SizedBox(height: 20,),  
+              SizedBox(height: 20,),
                 Padding(
                 padding: EdgeInsets.only(right:12.0,left:12.0),
-                child: 
+                child:
                   Stack(
                   children: [
                         Container(
@@ -72,12 +90,12 @@ class _signup_pageState extends State<signup_page> {
                                       ],
                                      ),
                                      Expanded(child: SizedBox()),
-                                
+
                                       Row(
                                        children: [
                                         Text('Sign up as an NGO'),
                                          SizedBox(width:2,),
-                                         
+
                                         // IconButton(
                                         //   onPressed:,
                                         //   icon:
@@ -87,79 +105,79 @@ class _signup_pageState extends State<signup_page> {
                                       ),
                                   ],
                                 ),
-                                                
+
                                 Text('Sign up', style: TextStyle(fontSize:24, color:Colors.black),),
                                 SizedBox(height: 10,),
                                 Text('Create an account to access the complete platform', style: TextStyle(fontSize:13, color:color1),),
-          
+
                                 SizedBox(height: 10,),
 
                                 /// creating Text fields for input user data.
-        
+
                                 CustomTextFormField(
-                                  labelText: null, 
+                                  labelText: null,
                                   controller: _nameController,
-                                  hintText: 'Name*', 
-                                  prefixIcon: null, 
-                                  suffixIcon: null, 
-                                  obscureText: false,  
+                                  hintText: 'Name*',
+                                  prefixIcon: null,
+                                  suffixIcon: null,
+                                  obscureText: false,
                                   validator: (value){
                                     if (value!.isEmpty){
-                                        return 'Please enter your name';
+                                        return 'Please  enter your name';
                                     }
-                                  }, 
-                                  height: mq.height*7/100, 
+                                  },
+                                  height: mq.height*7/100,
                                   width: mq.width),
 
                                 SizedBox(height: 8,),
 
                                 CustomTextFormField(
-                                  labelText: null, 
+                                  labelText: null,
                                   controller: _emailController,
-                                  hintText: 'Email*', 
-                                  prefixIcon: null, 
-                                  suffixIcon: null, 
-                                  obscureText: false,  
+                                  hintText: 'Email*',
+                                  prefixIcon: null,
+                                  suffixIcon: null,
+                                  obscureText: false,
                                   validator: (value){
                                     if (value!.isEmpty){
                                         return 'Please enter your email';
                                     }
-                                  }, 
-                                  height: mq.height*6/100, 
+                                  },
+                                  height: mq.height*6/100,
                                   width: mq.width),
 
                                   SizedBox(height: 8,),
 
                                   CustomTextFormField(
-                                  labelText: null, 
+                                  labelText: null,
                                   controller: _passwordController,
-                                  hintText: 'Create password*', 
-                                  prefixIcon: null, 
-                                  suffixIcon: Icon(Icons.visibility), 
-                                  obscureText: false,  
+                                  hintText: 'Create password*',
+                                  prefixIcon: null,
+                                  suffixIcon: Icon(Icons.visibility),
+                                  obscureText: false,
                                   validator: (value){
                                     if (value!.isEmpty){
                                         return 'Please create a unique password';
                                     }
-                                  }, 
-                                  height: mq.height*6/100, 
+                                  },
+                                  height: mq.height*6/100,
                                   width: mq.width),
 
                                   SizedBox(height: 8,),
 
                                   CustomTextFormField(
-                                  labelText: null, 
+                                  labelText: null,
                                   controller: _confirmPasswordController,
-                                  hintText: 'Confirm password*', 
-                                  prefixIcon: null, 
-                                  suffixIcon: Icon(Icons.visibility), 
-                                  obscureText: false,  
+                                  hintText: 'Confirm password*',
+                                  prefixIcon: null,
+                                  suffixIcon: Icon(Icons.visibility),
+                                  obscureText: false,
                                   validator: (value){
                                     if (value!.isEmpty){
                                         return 'Please enter your name';
                                     }
-                                  }, 
-                                  height: mq.height*6/100, 
+                                  },
+                                  height: mq.height*6/100,
                                   width: mq.width),
 
                                   SizedBox(height: 10,),
@@ -174,19 +192,19 @@ class _signup_pageState extends State<signup_page> {
                                       },
                                       value:value.isChecked);
                                     } ),
-                                    
+
 
                                     Consumer<CheckboxProvider>(
-                                      builder: (BuildContext context, CheckboxProvider value, Widget? child) {  
+                                      builder: (BuildContext context, CheckboxProvider value, Widget? child) {
                                       return  CheckboxWidget(
-                                      String1:'I agree to the ' , 
-                                      String2:'Privacy policies', 
-                                      value: value.isChecked, 
+                                      String1:'I agree to the ' ,
+                                      String2:'Privacy policies',
+                                      value: value.isChecked,
                                       onChanged:(newValue){
                                         value.toggleCheckbox();
                                       });
                                     }),
-                                    
+
 
                                     const SizedBox(height:20,),
 
@@ -195,9 +213,9 @@ class _signup_pageState extends State<signup_page> {
                                       width: double.infinity,
                                     child:ElevatedButton(
                                       style: ElevatedButton.styleFrom(backgroundColor: color3),
-                                      onPressed:(){}, 
+                                      onPressed:(){googlelogin();},
                                     child: Text('Create Account',style: TextStyle(color: Colors.white)))
-                                    
+
                                     ),
 
                                     const SizedBox(height:30,),
@@ -227,7 +245,7 @@ class _signup_pageState extends State<signup_page> {
                                         Text('__________', style: TextStyle(color: color1)),
                                       ],
                                     ),
- 
+
                                     const SizedBox(height:8,),
 
                                     InkWell(
@@ -239,28 +257,28 @@ class _signup_pageState extends State<signup_page> {
                                         child: Image.asset('assets/Icons/google.jpg',))
                                     )
 
-                                    
+
 
 
                                     ],
 
-                                    
+
                             ),
                           ),
-                                          
-                        
-                                           
-                        
+
+
+
+
                                         )
                   ],
                 ),
-              ) 
+              )
               ],
             ),
           ),
         ),
       ),
-     
+
     );
   }
 }

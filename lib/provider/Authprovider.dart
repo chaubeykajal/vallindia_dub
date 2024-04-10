@@ -18,7 +18,7 @@ class AuthProvider extends ChangeNotifier{
       
     if (_googleuser != null){
   
-      Navigator.of(context).pushReplacement(
+      Navigator.of(context as BuildContext).pushReplacement(
         MaterialPageRoute(builder: (context) => MyHomePage(title: '',)),
       );
     }
